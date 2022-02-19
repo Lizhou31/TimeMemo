@@ -29,8 +29,7 @@ home = "Home"
 logo = "images/logo.png"
 dateFormat = "6 January 2006"
 # Meta data
-description = "Timer Hugo theme"
-author = "Themefisher"
+description = "TimeMemo, a Blog"
 # Google Analitycs
 googleAnalitycsID = "Your ID"
 # contact form action
