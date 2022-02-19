@@ -1,4 +1,4 @@
-baseURL = "https://demo.gethugothemes.com/timer/site/"
+baseURL = https://lizhou31.github.io/TimeMemo/"
 languageCode = "en-us"
 title = "TimeMemo"
 theme = "timer-hugo"
