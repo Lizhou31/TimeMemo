@@ -1,4 +1,4 @@
-baseURL = "https://lizhou31.github.io/TimeMemo/"
+baseURL = "https://timememo.lizhou31.com/"
 languageCode = "en-us"
 title = "TimeMemo"
 theme = "timer-hugo"
