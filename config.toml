@@ -1,4 +1,4 @@
-baseURL = "https://timememo.lizhou31.com"
+baseURL = "https://timememo.lizhou31.com/"
 languageCode = "en-us"
 title = "TimeMemo"
 theme = "timer-hugo"
