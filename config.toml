@@ -1,0 +1,56 @@
+baseURL = "https://demo.gethugothemes.com/timer/site/"
+languageCode = "en-us"
+title = "TimeMemo"
+theme = "timer-hugo"
+# post pagination
+paginate = "2" # see https://gohugo.io/extras/pagination/
+
+# We Used Ionicons Icon font for Icon, for more details check this link - https://ionicons.com/
+
+# Navbar Menus
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "About"
+url = "about/"
+weight = 3
+
+[[menu.main]]
+name = "Blog"
+url = "blog/"
+weight = 2
+
+# Site Params
+[params]
+home = "Home"
+logo = "images/logo.png"
+dateFormat = "6 January 2006"
+# Meta data
+description = "Timer Hugo theme"
+author = "Themefisher"
+# Google Analitycs
+googleAnalitycsID = "Your ID"
+# contact form action
+contactFormAction = "#" # contact form works with https://formspree.io
+
+# Banner Section
+[params.banner]
+enable = true
+bgImage = "images/slider.jpg"
+heading = "僅僅是個興趣使然的"
+description = "覺得自己什麼都不會，覺得自己什麼都該學"
+
+# flip text
+[[params.banner.flipText]]
+title = "DEVELOPER"
+
+# Homepage About Section
+[params.about]
+enable = true
+title = "ABOUT ME"
+content = "興趣使然的開始接觸程式，興趣使然的開始唸書，一切都是興趣使然，所以實際上水準很差。在求學的道路上並沒有一帆風順，過多的叛逆與貪玩幾乎浪費掉了那段時光，真正出了社會需要面對考驗的時候就只能，啊！我就爛 ^_^b <br><br>目前專注於（應該）嵌入式系統的開發，以及 Linux 核心的學習，也會關注 tinyML 的發展，對於其結合異質性架構運用在邊緣運算上十分有興趣。"
+image = "images/about/about.jpg"
+
