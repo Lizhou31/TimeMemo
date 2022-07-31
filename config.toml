@@ -50,5 +50,7 @@ title = "DEVELOPER"
 [params.about]
 enable = true
 title = "ABOUT ME"
-content = "興趣使然的開始接觸程式，興趣使然的開始唸書，一切都是興趣使然，所以實際上水準很差。在求學的道路上並沒有一帆風順，過多的叛逆與貪玩幾乎浪費掉了那段時光，真正出了社會需要面對考驗的時候就只能，啊！我就爛 ^_^b <br><br>目前專注於（應該）嵌入式系統的開發，以及 Linux 核心的學習，未來目標目前是希望投身於大型複雜系統的建構。"
+content = "興趣使然的開始接觸程式，興趣使然的開始唸書，一切都是興趣使然，所以實際上水準很差。在求學的道路上並沒有一帆風順，過多的叛逆與貪玩幾乎浪費掉了那段時光，真正出了社會需要面對考驗的時候就只能，啊！我就爛 ^_^b"
 image = "images/about/about.jpg"
+gmail = "mailto:lisie31s@gmail.com"
+github = "https://www.github.com/lizhou31"
