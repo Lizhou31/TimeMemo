@@ -45,6 +45,10 @@ description = "覺得自己什麼都不會，覺得自己什麼都該學"
 # flip text
 [[params.banner.flipText]]
 title = "DEVELOPER"
+[[params.banner.flipText]]
+title = "Photographer"
+[[params.banner.flipText]]
+title = "Writer"
 
 # Homepage About Section
 [params.about]
