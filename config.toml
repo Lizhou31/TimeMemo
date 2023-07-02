@@ -59,7 +59,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 # 菜单配置
 [menu]
   [[menu.main]]
-    weight = 1
+    weight = 2
     identifier = "posts"
     # you can add extra information before the name (HTML format is supported), such as icons
     # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
@@ -73,7 +73,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 当您将鼠标悬停在此菜单链接上时, 将显示标题
     title = "Posts"
   [[menu.main]]
-    weight = 2
+    weight = 3
     identifier = "tags"
     pre = ""
     post = ""
@@ -81,7 +81,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     url = "tags/"
     title = "Tags"
   [[menu.main]]
-    weight = 3
+    weight = 4
     identifier = "categories"
     pre = ""
     post = ""
@@ -89,7 +89,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     url = "categories/"
     title = "Categories"
   [[menu.main]]
-    weight = 5
+    weight = 1
     identifier = "about"
     pre = ""
     post = ""
@@ -97,7 +97,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     url = "about/"
     title = ""
   [[menu.main]]
-    weight = 6
+    weight = 5
     identifier = "github"
     pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
     title = "Github"
@@ -278,7 +278,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       avatarURL = "/images/avatar.jpeg"
       # title shown in home page (HTML format is supported)
       # 主页显示的网站标题 (支持 HTML 格式)
-      title = ""
+      title = "Lizhou's TimeMemo"
       # subtitle shown in home page (HTML format is supported)
       # 主页显示的网站副标题 (允许 HTML 格式)
       subtitle = "A novice programmer, a beginner photographer, and an amateur writer."

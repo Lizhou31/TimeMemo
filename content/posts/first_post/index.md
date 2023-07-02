@@ -59,7 +59,7 @@ seo:
   images: []
   # ...
 ---
-A charming café located near the sea in Kaohsiung Mituo. Please enjoy a cup of cofee and take a break.
+_A charming café located near the sea in Kaohsiung Mituo. Please enjoy a cup of cofee and take a break._
 <!--more-->
 ## 前言
 
@@ -95,7 +95,7 @@ A charming café located near the sea in Kaohsiung Mituo. Please enjoy a cup of 
 ## 期許?
 
 引用黃仁勳的一段話：
-> _"Vision" is an awfully big word to me because I believe, first of all, vision matters. But I like to use the word "perspective" because it makes it possible for anyone to have one. When you say vision, it feels like only a few selected visionaries of the world can have one. But everyone has a perspective and that's, in fact, all visions means. That you see the world in a way that is eigher different or otherwise than somebody else. And you see opportunities that I think you believe are particularly important to go on and address. That you can address in a particualr way._
+> _"Vision" is an awfully big word to me. First of all, vision matters. But I like to use the word "perspective" because it makes it possible for anyone to have one. When you say vision, it feels like only a few selected visionaries of the world can have one. But everyone has a perspective and that's, in fact, all visions means. That you see the world in a way that is eigher different or otherwise than somebody else. And you see opportunities that I think you believe are particularly important to go on and address. That you can address in a particualr way._
 
 所以，我的觀點是什麼？既然每個人都有觀點，那我對於自己，對於生活，對於任何事情，我是否能夠提出一個觀點。
 
