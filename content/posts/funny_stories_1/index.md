@@ -3,7 +3,7 @@ title: "那些生活上的趣事（一）"
 subtitle: ""
 date: 2023-07-08T22:26:02+08:00
 lastmod: 2023-07-08T22:26:02+08:00
-draft: true
+draft: false
 author: "Lizhou"
 authorLink: "https://timememo.lizhou31.com"
 description: ""
