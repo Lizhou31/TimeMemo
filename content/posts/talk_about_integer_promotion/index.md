@@ -3,7 +3,7 @@ title: "Integer Promotions"
 subtitle: ""
 date: 2023-07-09T22:32:01+08:00
 lastmod: 2023-07-09T22:32:01+08:00
-draft: true
+draft: false
 author: "Lizhou"
 authorLink: "https://timememo.lizhou31.com"
 description: ""
@@ -13,7 +13,7 @@ images: []
 tags: ["C","計算機概論"]
 categories: ["Technical_Note"]
 
-featuredImage: ""
+featuredImage: "featured-image.webp"
 featuredImagePreview: ""
 
 hiddenFromHomePage: false
@@ -58,7 +58,7 @@ seo:
   images: []
   # ...
 ---
-
+來討論一點整型提升
 <!--more-->
 
 ## Overview
@@ -113,9 +113,9 @@ Integer conversion rank 同樣於 §6.3.1.1 / 1 有描述。
 _EXAMPLE 2 In executing the fragment_
 
   ```c
-             char c1, c2;
-             /* ... */
-             c1 = c1 + c2;
+    char c1, c2;
+    /* ... */
+    c1 = c1 + c2;
   ```
   _the ''integer promotions'' require that the abstract machine promote the value of each variable to int size and then add the two ints and truncate the sum. Provided the addition of two chars **can be done without overflow**, or **with overflow wrapping silently** to produce the correct result, the actual execution need only produce the same result, possibly omitting the promotions._
 {{< /admonition >}}
@@ -145,10 +145,16 @@ _EXAMPLE 2 In executing the fragment_
 可以得知 default function prototype 的使用情境。
 
 {{< admonition type=tip >}} 
-另，在 [https://stackoverflow.com/a/55419261](https://stackoverflow.com/a/55419261) 之中有說到了 function declare without prototype 的講解，底下的 comment 也有提到 function without prototype is old syntax you should not use in new code.
+另，在 [stack overflow - Function without prototype called with non-compatible type](https://stackoverflow.com/a/55419261) 之中有說到了 function declare without prototype 的講解，底下的 comment 也有提到 function without prototype is old syntax you should not use in new code.
 {{< /admonition >}}
 
-針對 function 的 parameters 和 arguments 的 integer promotion，有幾項準則。
+針對 function 的 parameters 和 arguments 的 integer promotion，有幾個會造成 UB (Undefined Behavior)：
+  * 如果 function 的 prototype 是 defined，但經過 promotion 之後的 arguments 和 parameters 是無法匹配起來的，會造成 UB。
+  * 如果 function 的 prototype 是 not defined，parameters 和 arguments 雙邊進行 promotion 之後是無法匹配的，也會造成 UB。
+  
+{{< admonition type=tip >}}
+也可以參考以下資訊 [stack overflow - Default argument and parameter promotions in C](https://stackoverflow.com/a/61836943)
+{{< /admonition >}}
 
 ### _§6.5.3.3_
 
@@ -159,43 +165,73 @@ _EXAMPLE 2 In executing the fragment_
 
 *The result of the ~ operator is the bitwise complement of its (promoted) operand (that is, each bit in the result is set if and only if the corresponding bit in the converted operand is not set). The integer promotions are performed on the operand, and **the result has the promoted type**. If the promoted type is an unsigned type, the expression ~E is equivalent to the maximum value representable in that type minus E.*
   
-The result of the logical negation operator ! is 0 if the value of its operand compares unequal to 0, 1 if the value of its operand compares equal to 0. The result has type int. The expression !E is equivalent to (0==E).*
+_The result of the logical negation operator ! is 0 if the value of its operand compares unequal to 0, 1 if the value of its operand compares equal to 0. The result has type int. The expression !E is equivalent to (0 == E)._
 {{< /admonition >}}
     
-此段講解了unary arithmetic operator 使用上的 integer promotions 場景，尤其是 + 號，+E 實現對 E 整型提昇的作用。
+此段講解了 unary arithmetic operator 使用上的 integer promotions 場景：
+  * Unary `+` operator
+  * Unary `-` operator
+  * Unary `~` operator
+
+此三個 unary operator 都會表現出 promoted result，`+E` 甚至可以當作主動觸發 Integer Promotion 的方法。
     
 ### _§6.5.7 / 3_
 
 {{< admonition type=quote title="§6.5.7 / 3" >}}
-*The integer promotions are performed on each of the operands. The type of the result is that of the promoted left operand. **If the value of the right operand is negative or is greater than or equal to the width of the promoted left operand, the behavior is undefined.*
+_The integer promotions are performed on each of the operands. The type of the result is that of the promoted left operand. ***If the value of the right operand is negative or is greater than or equal to the width of the promoted left operand, the behavior is undefined.***_
 {{< /admonition >}}
-    
-此段說明了當使用 Bitwise shift operators 時，兩邊的 operands 都會 integer promotions，並且假設右側的 operand 是負數或其 shift 的位數(bits) 大於等於左側 promoted 以後的位數(bits)，則是 undefined behavior。
 
-{{< admonition type=tip >}} 
-在 jserv 老師的 <2021年「Linux核心」暑期課程> 中的 <[位元旋轉實做和Linux核心案例](https://hackmd.io/@sysprog/linux2021-summer/https%3A%2F%2Fhackmd.io%2F%40sysprog%2Fbitwise-rotation)> 中有講解到關於 Linux 核心在實做位元選轉時因應 integer promotions 所做出的不同實做，也是讓我開始閱讀 integer promotions 相關資料的契機。
-{{< /admonition >}}   
+此段是對於 Bitwise shift operators 的更多說明，當使用 Bitwise shift operators 時，兩邊的 operands 都會 integer promotions，並且若右側的 operand 是負數或其 shift 的位數 (bits) 大於等於左側 promoted 以後的位數 (bits)，則是 undefined behavior。
+
+{{< admonition type=tip >}}
+在 jserv 老師的 <2021年「Linux核心」暑期課程> 中的 <[位元旋轉實做和Linux核心案例](https://hackmd.io/@sysprog/bitwise-rotation)> 中有講解到關於 Linux 核心在實做位元旋轉時因應 integer promotions 所做出的不同實做。
+  {{< admonition type=quote title="節錄位元旋轉實作和 Linux 核心案例" >}}
+  Linux Kernel 曾經的 32 位元旋轉實作如下：
+
+  ```c
+    static inline __u32 rol32(__u32 word, unsigned int shift) 
+    {
+      return (word << shift) | (word >> (32 - shift));
+    }
+  ```
+
+  但上述實作當 shift 為 0 時，其中 >> 32 對於 32 位元整數來說，會遇到 C 語言中規範的 undefined behavior（如上述規格書所述）
+
+  因此後續進行改善為如下實作：
+
+  ```c
+    static inline __u32 rol32(__u32 word, unsigned int shift)
+    {
+      return (word << (shift & 31)) | (word >> ((-shift) & 31));
+    }
+  ```
+
+  但上述主要是因為 32 位元的 integer promotion 的結果造成 UB，如果是 8 位元的實作則並不會有問題：
+
+  ```c
+    static inline __u8 rol8(__u8 word, unsigned int shift)
+    {
+      return (word << shift) | (word >> (8 - shift));
+    }
+  ```
+
+  {{< /admonition >}}
+{{< /admonition >}}
 
 ### _§6.8.4.2 / 5_
 
 {{< admonition type=quote title="§6.8.4.2 / 5" >}}
-**The integer promotions are performed on the controlling expression**. The constant expression in each case label is converted to the promoted type of the controlling expression. If a converted value matches that of the promoted controlling expression, control jumps to the statement following the matched case label. Otherwise, if there is a default label, control jumps to the labeled statement. If no converted case constant expression matches and there is no default label, no part of the switch body is executed.
+_**The integer promotions are performed on the controlling expression**. The constant expression in each case label is converted to the promoted type of the controlling expression. If a converted value matches that of the promoted controlling expression, control jumps to the statement following the matched case label. Otherwise, if there is a default label, control jumps to the labeled statement. If no converted case constant expression matches and there is no default label, no part of the switch body is executed._
 {{< /admonition >}}
+
+此段是對於 switch statement 的附加敘述，switch statement 的 controlling expression 會先經過 promote，然後各個 Label 在進行 convert 進行比對。
 
 
 ## 關於 Integer Promotions 的一些想法與延伸
 
 - 實際上關於 Integer Promotions 的發生可以說是必然的，就如同 Wiki 上所說的，任何值要送入 ALU 運算時都會需要把數值存進某個 register 中，而這個 register 大小通常等於 `int` 的大小。當送入 register 的情況發生以後，實際上就等同於發生了 Integer Promotions 。
+- 機器（硬體）上的“必然”在軟體是由規格書特別規範出來，這樣似乎可以針對語言的 Abstract machine 進行討論了...（下集待續？）
 
-節錄自影片：abstract machine
-
-![Untitled](Integer%20promotions%20&%20Usual%20arithmetic%20conversions%2049f86f1c18b04433a942bdb0c4946249/Untitled.png)
-
-![Untitled](Integer%20promotions%20&%20Usual%20arithmetic%20conversions%2049f86f1c18b04433a942bdb0c4946249/Untitled%201.png)
-
-![Untitled](Integer%20promotions%20&%20Usual%20arithmetic%20conversions%2049f86f1c18b04433a942bdb0c4946249/Untitled%202.png)
-
-資料來源
+其他參考資料來源
 
 - ***[ISO/IEC 9899:201X (N1570)](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)***
-- [Back to Basics: The Abstract Machine - Bob Steagall - CppCon 2020 (Youtube)](https://www.youtube.com/watch?v=ZAji7PkXaKY)
