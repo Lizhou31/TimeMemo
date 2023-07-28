@@ -58,7 +58,7 @@ seo:
   images: []
   # ...
 ---
-初探 RT-Thread
+_初探 RT-Thread_
 <!--more-->
 
 ## 緣起

@@ -10,7 +10,7 @@ description: ""
 license: ""
 images: []
 
-tags: ["雜談", "Funny_stories", "趣事系列"]
+tags: ["雜談", "Funny stories", "趣事系列"]
 categories: ["Life_Memo"]
 
 featuredImage: "featured-image.webp"
