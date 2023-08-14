@@ -3,7 +3,7 @@ title: "週末的一點前端小旅程"
 subtitle: "Vuejs + Threejs 的小嘗試"
 date: 2023-08-14T21:20:55+08:00
 lastmod: 2023-08-14T21:20:55+08:00
-draft: true
+draft: false
 author: "Lizhou"
 authorLink: "https://timememo.lizhou31.com"
 description: ""
