@@ -135,7 +135,7 @@ $$0<=fraction<1$$
 
 IEEE 754 有很好的定義了個別特殊運算的結果：
 
-{{<image src="Special_caculate.webp">}}
+{{<image src="Special_calculate.webp">}}
 
 其中 NaN 與任何數字做任何運算都會得出 NaN 的結果。
 

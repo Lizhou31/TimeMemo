@@ -93,7 +93,7 @@ classDiagram
   class model_base{
     <<interface>>
     construct_Mesh() Array
-    caculate_and_compare_point(point_height : number) number
+    calculate_and_compare_point(point_height : number) number
     getCameraPosition(x : number, y : number, z : number, distance : number) Vector3
   }
   class cylinder_model{
@@ -102,15 +102,15 @@ classDiagram
     layer_Height : Array
     layer_TRadius : Array
     layer_BRadius : Array
-    caculate_y_offset() number
+    calculate_y_offset() number
     record_layer_info(height : number, tradius : number, bradius : number)
     construct_Mesh() Array
-    caculate_and_compare_point(point_height : number) number
+    calculate_and_compare_point(point_height : number) number
     getCameraPosition(x : number, y : number, z : number, distance : number) Vector3
   }
   class other_model{
     construct_Mesh() Array
-    caculate_and_compare_point(point_height : number) number
+    calculate_and_compare_point(point_height : number) number
     getCameraPosition(x : number, y : number, z : number, distance : number) Vector3
   }
   BaseModel  -->  model_base : Contains
@@ -168,7 +168,7 @@ constructor(params: Array<number>) {
       let CylinderTopRadius = params[index++]
       let CylinderButtomRadius = params[index++]
 
-      let y_offset = this.caculate_y_offset(CylinderHeight) // 求出每一層的起始高度
+      let y_offset = this.calculate_y_offset(CylinderHeight) // 求出每一層的起始高度
 
       /* 建立 各層 CylinderGeometry 實體 */
       this.CylinderArray.push(
@@ -188,11 +188,11 @@ constructor(params: Array<number>) {
 
 可以看到建構子傳入為一個 number array，裡面依序存放著從最底層至最高層的高，上半徑，下半徑。
 
-而由於會需要計算出每一層的起始高度，`caculate_y_offset()`則是用來實現計算每層累積高度的方法。
+而由於會需要計算出每一層的起始高度，`calculate_y_offset()`則是用來實現計算每層累積高度的方法。
 
 ```TypeScript
 /* 簡單計算每層起始高度 */
-caculate_y_offset(current_height: number): number {
+calculate_y_offset(current_height: number): number {
   let height: number = 0;
   for (let i = 0; i < this.CylinderArray.length; i++) {
     height += this.params[i * 3]
@@ -233,7 +233,7 @@ record_layer_info(height: number, tradius: number, bradius: number) {
 
 ```TypeScript
 /* 計算傳入的點在哪一層 */
-caculate_and_compare_point(pointX: number, PointY: number, PointZ: number) {
+calculate_and_compare_point(pointX: number, PointY: number, PointZ: number) {
   let result: number = 0
 
   /* 線性比較高度 */
@@ -247,7 +247,7 @@ caculate_and_compare_point(pointX: number, PointY: number, PointZ: number) {
 ```
 
 計算出點位在哪層之後就能開始計算相機位置，那先給個計算示意圖：
-![camera_p_caculate](camera_p_caculate.webp "計算示意圖")
+![camera_p_calculate](camera_p_calculate.webp "計算示意圖")
 
 $TR$ 是上半徑，$BR$ 是下半徑，$H$ 是層的高度，$D$ 是相機距離量測點的距離。
 
@@ -270,7 +270,7 @@ $$r'=D*\cos{[\arctan{(\frac{TR-BR}{H})}]}$$
 getCameraPosition(pointX: number, pointY: number, pointZ: number, distance: number) {
 
   /* 先確定點在哪層 */
-  let layer_index = this.caculate_and_compare_point(pointX, pointY, pointZ)
+  let layer_index = this.calculate_and_compare_point(pointX, pointY, pointZ)
 
   /* 計算偏移角度 theta */
   let theta = Math.atan((this.layer_TRadius[layer_index] - this.layer_BRadius[layer_index])
