@@ -1,4 +1,6 @@
 baseURL = "https://timememo.lizhou31.com/"
+relativeURLs = false
+canonifyURLs = true
 title = "TimeMemo"
 theme = ["FixIt"]
 themesDir = "themes/"
