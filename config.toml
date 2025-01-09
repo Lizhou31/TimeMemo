@@ -2,7 +2,7 @@ baseURL = "https://timememo.lizhou31.com"
 
 # theme
 # 主题
-theme = "LoveIt"
+theme = "FixIt"
 # themes directory
 # 主题目录
 themesDir = "themes/"
@@ -24,9 +24,6 @@ languageName = "English"
 # 是否包括中日韩文字
 hasCJKLanguage = true
 
-# default amount of posts in each pages
-# 默认每页列表显示的文章数目
-paginate = 12
 # google analytics code [UA-XXXXXXXX-X]
 # 谷歌分析代号 [UA-XXXXXXXX-X]
 googleAnalytics = ""
@@ -107,9 +104,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # site default theme ["auto", "light", "dark"]
   # 网站默认主题 ["auto", "light", "dark"]
   defaultTheme = "auto"
-  # public git repo url only then enableGitInfo is true
-  # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
-  gitRepo = "https://github.com/Lizhou31/LoveIt"
   # which hash function used for SRI, when empty, no SRI is used
   # ["sha256", "sha384", "sha512", "md5"]
   # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI
@@ -187,7 +181,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.section]
     # special amount of posts in each section page
     # section 页面每页显示文章数量
-    paginate = 20
+    pagerSize = 20
     # date format (month and day)
     # 日期格式 (月和日)
     dateFormat = "01-02"
@@ -200,7 +194,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.list]
     # special amount of posts in each list page
     # list 页面每页显示文章数量
-    paginate = 20
+    pagerSize = 20
     # date format (month and day)
     # 日期格式 (月和日)
     dateFormat = "01-02"
@@ -297,14 +291,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       enable = true
       # special amount of posts in each home posts page
       # 主页每页显示文章数量
-      paginate = 6
+      pagerSize = 6
   # Social config in home page
   # 主页的社交信息设置
   [params.social]
     GitHub = "Lizhou31"
     Linkedin = ""
     Twitter = ""
-    Instagram = ""
+    Instagram = "lizhou_ph"
     Facebook = ""
     Telegram = "Lizhou0726"
     Medium = ""
@@ -718,6 +712,25 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 是否使用 object-fit-images 来兼容旧式浏览器
     objectFit = false
 
+  # Enable version number display
+  version = "0.2.X"
+  
+  # Enable PWA support
+  [params.pwa]
+    enable = true
+    
+  # Enable watermark (FixIt specific feature)
+  [params.watermark]
+    enable = false
+    
+  # Enable reading time display
+  [params.readingTime]
+    enable = true
+    
+  # Enable word count display
+  [params.wordCount]
+    enable = true
+
 # Markup related configuration in Hugo
 # Hugo 解析文档的配置
 [markup]
@@ -793,9 +806,24 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 # Options to make hugo output files
 # 用于 Hugo 输出文档的设置
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
-  taxonomyTerm = ["HTML"]
+
+# Pagination config
+# 分页配置
+[pagination]
+  # default amount of posts in each pages
+  # 默认每页列表显示的文章数目
+  pagerSize = 12
+
+# Add the new gitInfo configuration
+[params.gitInfo]
+  # your git repo URL
+  repo = "https://github.com/Lizhou31/TimeMemo"
+  # whether to show the last modified time of a page
+  enableEditLink = true
+  # default branch
+  branch = "main"
 

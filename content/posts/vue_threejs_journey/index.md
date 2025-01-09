@@ -91,7 +91,7 @@ classDiagram
     search_points(x : number, y : number, z : number, d : number) Vector3
   }
   class model_base{
-    <<interface>>
+    << interface >>
     construct_Mesh() Array
     calculate_and_compare_point(point_height : number) number
     getCameraPosition(x : number, y : number, z : number, distance : number) Vector3
