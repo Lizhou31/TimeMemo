@@ -1,8 +1,8 @@
-baseURL = "https://timememo.lizhou31.com"
+baseURL = "https://timememo.lizhou31.com/"
 
 # theme
 # 主题
-theme = "FixIt"
+theme = ["FixIt"]
 # themes directory
 # 主题目录
 themesDir = "themes/"
@@ -713,7 +713,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     objectFit = false
 
   # Enable version number display
-  version = "0.2.X"
+  version = "0.3.X"
   
   # Enable PWA support
   [params.pwa]
