@@ -122,7 +122,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       avatarURL = "/images/avatar.jpeg"
       title = "Lizhou's TimeMemo"
       subtitle = "A novice programmer, a beginner photographer, and an amateur writer."
-      typeit = false
+      typeit = true
       social = true
     [params.home.posts]
       enable = true
@@ -154,12 +154,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       copy = true
       maxShownLines = 50
 
-  # [params.typeit]
-  #  speed = 60
-  #  cursorSpeed = 1000
-  #  cursorChar = "|"
-  #  duration = 1400
-  #  loop = false
+  [params.typeit]
+    speed = 60
+    cursorSpeed = 1000
+    cursorChar = "|"
+    duration = 1400
+    loop = false
 
   [params.gitInfo]
     repo = "https://github.com/Lizhou31/TimeMemo"
