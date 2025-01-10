@@ -154,6 +154,17 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       copy = true
       maxShownLines = 50
 
+    [params.page.comment]
+      enable = true
+      [params.page.comment.utterances]
+        enable = true
+        # owner/repo
+        repo = "Lizhou31/TimeMemo"
+        issueTerm = "pathname"
+        label = "Comments"
+        lightTheme = "github-light"
+        darkTheme = "github-dark"
+
   [params.typeit]
     speed = 60
     cursorSpeed = 1000
