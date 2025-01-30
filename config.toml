@@ -6,10 +6,62 @@ theme = ["FixIt"]
 themesDir = "themes/"
 
 # Language settings
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-tw"
 languageCode = "en"
-languageName = "English"
 hasCJKLanguage = true
+
+[languages]
+  [languages.en]
+    weight = 1
+    title = "TimeMemo"
+    languageCode = "en"
+    languageName = "English"
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      name = "Posts" 
+      url = "/posts/"
+      weight = 2
+    [[languages.en.menu.main]]
+      identifier = "tags"
+      name = "Tags"
+      url = "/tags/"
+      weight = 3
+    [[languages.en.menu.main]]
+      identifier = "categories" 
+      name = "Categories"
+      url = "/categories/"
+      weight = 4
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "About"
+      url = "/about/"
+      weight = 1
+
+  [languages.zh-tw]
+    weight = 2
+    title = "時光筆記"
+    languageCode = "zh-TW"
+    languageName = "繁體中文"
+    [[languages.zh-tw.menu.main]]
+      identifier = "posts"
+      name = "文章"
+      url = "/posts/"
+      weight = 2
+    [[languages.zh-tw.menu.main]]
+      identifier = "tags"
+      name = "標籤"
+      url = "/tags/"
+      weight = 3
+    [[languages.zh-tw.menu.main]]
+      identifier = "categories"
+      name = "分類"
+      url = "/categories/"
+      weight = 4
+    [[languages.zh-tw.menu.main]]
+      identifier = "about"
+      name = "關於"
+      url = "/about/"
+      weight = 1
 
 # Enable features
 enableRobotsTXT = true

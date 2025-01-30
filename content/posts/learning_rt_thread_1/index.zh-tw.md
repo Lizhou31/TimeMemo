@@ -11,7 +11,7 @@ license: ""
 images: []
 
 tags: ["C", "RT-Thread"]
-categories: ["Technical_Note"]
+categories: ["tech_note"]
 
 featuredImage: "featured-image.webp"
 featuredImagePreview: ""

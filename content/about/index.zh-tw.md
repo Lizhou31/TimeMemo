@@ -1,9 +1,9 @@
 ---
-title: "About Me"
+title: "關於我"
 date: 2023-06-25T12:05:30+08:00
 lastmod: 2023-06-25T12:10:42+08:00
 draft: false
-description: "About me, and this website."
+description: "關於我，以及這個網站"
 images: ["images/about/about.webp"]
 
 lightgallery: true

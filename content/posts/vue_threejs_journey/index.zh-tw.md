@@ -11,7 +11,7 @@ license: ""
 images: []
 
 tags: ["網頁","Vuejs","Threejs"]
-categories: ["Technical_Note"]
+categories: ["tech_note"]
 
 featuredImage: "featured-image.webp"
 featuredImagePreview: ""

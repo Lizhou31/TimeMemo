@@ -11,7 +11,7 @@ license: ""
 images: []
 
 tags: ["C","計算機概論"]
-categories: ["Technical_Note"]
+categories: ["tech_note"]
 
 featuredImage: "IEEE754_float_double_fraction.webp"
 featuredImagePreview: ""
