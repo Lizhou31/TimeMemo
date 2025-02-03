@@ -3,7 +3,7 @@ title: "讀後感 - The Clean Coder（ㄧ）"
 subtitle: "About Professionalism"
 date: 2023-07-28T13:35:24+08:00
 lastmod: 2023-07-28T13:35:24+08:00
-draft: false
+draft: true
 author: "Lizhou"
 authorLink: "https://timememo.lizhou31.com"
 description: ""
