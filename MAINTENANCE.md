@@ -185,6 +185,14 @@ to `index.zh-tw.md` for consistency with every other post.
 ## 7. Things that will bite you again
 
 - **`hugo-version: latest` in CI.** Now pinned. Don't undo it.
+- **Action versions age too.** On 2026-08-13 the actions were moved onto Node 24
+  runtimes (`checkout@v7`, `upload-pages-artifact@v5`, `deploy-pages@v5`) after
+  GitHub deprecated Node 20. Expect a similar nudge every year or two — it shows
+  up as a yellow annotation on a *passing* run, so it's easy to miss. Check with
+  `gh run view <id> --json conclusion` plus the run's annotations, not just the
+  green tick.
+  Note `upload-pages-artifact` v4+ **excludes dotfiles** from the artifact. Hugo
+  emits none today; if that changes, pass `include-hidden-files: true`.
 - **The submodule.** A fresh clone without `--recurse-submodules` cannot build.
   CI is already correct (`submodules: true` in the workflow).
 - **Never renaming published post folders.** The folder name *is* the URL.
