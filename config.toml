@@ -7,15 +7,15 @@ themesDir = "themes/"
 
 # Language settings
 defaultContentLanguage = "zh-tw"
-languageCode = "en"
+locale = "en"
 hasCJKLanguage = true
 
 [languages]
   [languages.en]
     weight = 1
     title = "TimeMemo"
-    languageCode = "en"
-    languageName = "English"
+    locale = "en"
+    label = "English"
     [[languages.en.menu.main]]
       identifier = "posts"
       name = "Posts" 
@@ -40,8 +40,8 @@ hasCJKLanguage = true
   [languages.zh-tw]
     weight = 2
     title = "時光筆記"
-    languageCode = "zh-TW"
-    languageName = "繁體中文"
+    locale = "zh-TW"
+    label = "繁體中文"
     [[languages.zh-tw.menu.main]]
       identifier = "posts"
       name = "文章"
@@ -156,16 +156,15 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
   [params.search]
     enable = true
-    type = "algolia"
+    # Switched from "algolia" to "fuse": the old Algolia app (6UTKX9KXC6) no
+    # longer resolves, so site search was dead. "fuse" builds a local index at
+    # /search.json at build time and needs no external account.
+    type = "fuse"
     contentLength = 4000
     maxResultLength = 10
     snippetLength = 30
     highlightTag = "em"
     absoluteURL = false
-    [params.search.algolia]
-      index = "tm_index"
-      appID = "6UTKX9KXC6"
-      searchKey = "19c57b4257957fba5cee4821e7bf4dee"
 
   [params.home]
     rss = 10
@@ -227,7 +226,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.gitInfo]
     repo = "https://github.com/Lizhou31/TimeMemo"
     enableEditLink = true
-    branch = "main"
+    # The repo's default branch is "master", not "main" — with "main" every
+    # "Edit this page" link 404s.
+    branch = "master"
 
   [params.readingTime]
     enable = true
@@ -249,7 +250,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     endLevel = 6
 
 [outputs]
-  home = ["HTML", "RSS"]
+  # "search" generates the local index that params.search (fuse) reads —
+  # without it the search box returns nothing. Listing `home` here REPLACES the
+  # theme's list rather than extending it, so "search" must be spelled out.
+  # FixIt also offers "archives" and "offline" here; both are left out on
+  # purpose, to keep the published URL set identical to what it was before.
+  home = ["HTML", "RSS", "search"]
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
